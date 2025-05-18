@@ -93,3 +93,9 @@ a:hover {
   color: #880e4f;
   text-decoration: underline;
 }
+
+#error-message {
+  color: #e91e63;
+  margin-top: 10px;
+  font-size: 14px;
+}
