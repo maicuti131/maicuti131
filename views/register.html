@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
   <meta charset="UTF-8">
   <title>Đăng ký</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h2>Đăng ký tài khoản 🐣</h2>
-    <form action="/register" method="POST">
-      <input type="text" name="username" placeholder="Tên đăng nhập" required>
-      <input type="password" name="password" placeholder="Mật khẩu" required>
-      <button type="submit">Đăng ký</button>
+    <h2>🎀 Đăng ký tài khoản mới</h2>
+    <form method="POST" action="/register">
+      <input type="text" name="username" placeholder="Tên đăng nhập" required />
+      <input type="password" name="password" placeholder="Mật khẩu" required />
+      <button type="submit">Tạo tài khoản</button>
+      <div id="error-message">{{error}}</div>
     </form>
-    <a href="/">← Quay lại đăng nhập</a>
+    <a href="/login.html">🔙 Quay lại đăng nhập</a>
   </div>
 </body>
 </html>
