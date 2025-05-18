@@ -19,19 +19,19 @@ const users = {
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'views'))); // Static file từ thư mục views
 
-// Route trang chủ
+// Serve file tĩnh (css, js, hình...) từ views
+app.use('/static', express.static(path.join(__dirname, 'views')));
+
+// Routes
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views/login.html'));
 });
 
-// Trang login
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'views/login.html'));
 });
 
-// Xử lý login
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
   let html = fs.readFileSync(path.join(__dirname, 'views/login.html'), 'utf-8');
@@ -58,12 +58,10 @@ app.post('/login', async (req, res) => {
   res.status(401).send(html);
 });
 
-// Trang đăng ký
 app.get('/register', (req, res) => {
   res.sendFile(path.join(__dirname, 'views/register.html'));
 });
 
-// Xử lý đăng ký
 app.post('/register', async (req, res) => {
   const { username, password } = req.body;
   let html = fs.readFileSync(path.join(__dirname, 'views/register.html'), 'utf-8');
@@ -83,7 +81,6 @@ app.post('/register', async (req, res) => {
   res.redirect('/login');
 });
 
-// Welcome (đã login)
 app.get('/welcome', (req, res) => {
   const user = req.cookies.user;
   if (!user) return res.redirect('/login');
@@ -95,19 +92,18 @@ app.get('/welcome', (req, res) => {
   });
 });
 
-// Logout
 app.get('/logout', (req, res) => {
   res.clearCookie('user');
   res.redirect('/login');
 });
 
-// Trang 404
+// 404 page
 app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, 'views/404.html'));
 });
 
-// Khởi động server
+// Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server login của Mai cuti chạy tại http://localhost:${PORT}`);
+  console.log(`🚀 Server cute chạy tại http://localhost:${PORT}`);
 });
