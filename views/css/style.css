@@ -1,80 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #ffd1dc, #ffe4e1);
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(145deg, #fbefff, #fce3f3);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  animation: fadeIn 1s ease-in;
+  overflow: hidden;
+  animation: gradientMove 10s infinite alternate;
+}
+
+@keyframes gradientMove {
+  0% { background-position: left; }
+  100% { background-position: right; }
 }
 
 .container {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  animation: slideUp 0.6s ease-out;
-  width: 300px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 35px 30px;
+  border-radius: 25px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  animation: float 3s ease-in-out infinite;
+  width: 320px;
   text-align: center;
+  transition: 0.4s;
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
 h2 {
   margin-top: 0;
-  color: #ff69b4;
+  color: #e91e63;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 input {
   width: 100%;
   padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ff69b4;
-  border-radius: 8px;
-  transition: 0.3s;
+  margin: 12px 0;
+  border: 2px solid #f8bbd0;
+  border-radius: 10px;
+  background: #fff0f6;
+  transition: 0.3s ease;
+  font-size: 15px;
 }
 
 input:focus {
-  border-color: hotpink;
+  border-color: #e91e63;
   outline: none;
-  transform: scale(1.05);
+  background: #ffe4ed;
+  box-shadow: 0 0 8px #ffc1e3;
 }
 
 button {
   width: 100%;
   padding: 12px;
-  background: #ff69b4;
+  background: linear-gradient(to right, #f06292, #ec407a);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(236, 64, 122, 0.4);
 }
 
 button:hover {
-  background: hotpink;
-  transform: scale(1.05);
+  background: linear-gradient(to right, #ec407a, #d81b60);
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(236, 64, 122, 0.5);
 }
 
 a {
   display: block;
   text-align: center;
-  margin-top: 15px;
-  color: #555;
+  margin-top: 18px;
+  color: #d81b60;
   text-decoration: none;
   transition: 0.2s;
+  font-size: 14px;
 }
 
 a:hover {
-  color: hotpink;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { transform: translateY(40px); opacity: 0; }
-  to   { transform: translateY(0); opacity: 1; }
+  color: #880e4f;
+  text-decoration: underline;
 }
