@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Serve file tĩnh (css, js, hình...) từ views
-app.use('/static', express.static(path.join(__dirname, 'views')));
+app.use('/static', express.static(path.join(__dirname, 'css')));
 
 // Routes
 app.get('/', (req, res) => {
