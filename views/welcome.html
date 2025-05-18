@@ -2,41 +2,14 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Chào mừng 💕</title>
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .welcome-box {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      text-align: center;
-      animation: fadeIn 1s ease;
-    }
-    .welcome-box h1 {
-      color: #67c23a;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-  </style>
+  <title>Welcome</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="welcome-box" data-aos="flip-left">
-    <h1>Chào mừng {{username}} cuti đã đăng nhập! 💖</h1>
+  <div class="container">
+    <h2>Chào mừng {{username}} 💕</h2>
+    <p>Bé đã đăng nhập thành công rùi nè!</p>
+    <a href="/logout">👉 Đăng xuất</a>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init();</script>
 </body>
 </html>
