@@ -3,18 +3,19 @@
 body {
   font-family: 'Quicksand', sans-serif;
   background: linear-gradient(145deg, #fbefff, #fce3f3);
+  background-size: 200% 200%;
+  animation: gradientMove 10s infinite alternate;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
   overflow: hidden;
-  animation: gradientMove 10s infinite alternate;
 }
 
 @keyframes gradientMove {
-  0% { background-position: left; }
-  100% { background-position: right; }
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 .container {
@@ -23,7 +24,7 @@ body {
   border-radius: 25px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
   animation: float 3s ease-in-out infinite;
-  width: 320px;
+  width: 340px;
   text-align: center;
   transition: 0.4s;
 }
@@ -39,6 +40,7 @@ h2 {
   color: #e91e63;
   font-size: 24px;
   margin-bottom: 20px;
+  font-weight: 600;
 }
 
 input {
@@ -98,4 +100,5 @@ a:hover {
   color: #e91e63;
   margin-top: 10px;
   font-size: 14px;
+  min-height: 20px;
 }
