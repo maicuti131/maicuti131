@@ -17,11 +17,23 @@ app.listen(process.env.PORT || 3000, () => {
 
 // Slash command loader
 client.commands = new Collection();
-const commandsPath = __dirname;
+
+// Đường dẫn tới thư mục lệnh
+const commandsPath = path.join(__dirname, 'commands');
+
+// Lọc tất cả file .js trong thư mục "commands"
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+
 for (const file of commandFiles) {
-  const command = require(`./${file}`);
-  client.commands.set(command.data.name, command);
+  const filePath = path.join(commandsPath, file);
+  const command = require(filePath);
+
+  // Kiểm tra command có đúng định dạng không
+  if ('data' in command && 'execute' in command) {
+    client.commands.set(command.data.name, command);
+  } else {
+    console.warn(`[⚠️] Lệnh ở ${file} không có định dạng hợp lệ.`);
+  }
 }
 
 // Khi bot online
