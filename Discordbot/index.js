@@ -19,7 +19,7 @@ app.listen(process.env.PORT || 3000, () => {
 client.commands = new Collection();
 
 // Đường dẫn tới thư mục lệnh
-const commandsPath = path.join(__dirname, 'commands');
+const commandsPath = path.join(__dirname, 'Commands');
 
 // Lọc tất cả file .js trong thư mục "commands"
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
