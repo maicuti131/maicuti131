@@ -62,7 +62,7 @@ client.on('messageCreate', message => {
     message.reply('Pong!');
   }
 });
-if (command === 'say') {
+  if (command === 'say') {
     const sayMessage = args.join(" ");
     if (!sayMessage) return message.reply("Bạn chưa nói gì hết á!");
     message.channel.send(sayMessage);
